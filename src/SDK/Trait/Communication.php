@@ -1,6 +1,6 @@
 <?php
 
-namespace Casterke\SimplePayLaravel\SDK\Trait;
+namespace casterke\SimplePayLaravel\SDK\Trait;
 
 use Exception;
 

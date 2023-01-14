@@ -1,6 +1,6 @@
 <?php
 
-namespace Casterke\SimplePayLaravel;
+namespace casterke\SimplePayLaravel;
 
 use Illuminate\Support\ServiceProvider;
 

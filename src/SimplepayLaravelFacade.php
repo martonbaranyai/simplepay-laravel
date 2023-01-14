@@ -1,11 +1,11 @@
 <?php
 
-namespace Casterke\SimplePayLaravel;
+namespace casterke\SimplePayLaravel;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Casterke\SimplePayLaravel\Skeleton\SkeletonClass
+ * @see \casterke\SimplePayLaravel\Skeleton\SkeletonClass
  */
 class SimplepayLaravelFacade extends Facade
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Casterke\SimplePayLaravel;
+namespace casterke\SimplePayLaravel;
 
-use Casterke\SimplePayLaravel\SDK\SimplePayStart;
+use casterke\SimplePayLaravel\SDK\SimplePayStart;
 
 class SimplePayLaravel
 {

@@ -1,14 +1,14 @@
 {
-    "name": "Casterke/simplepay-laravel",
+    "name": "casterke/simplepay-laravel",
     "description": "OTP SimplePay integration for Laravel applications.",
     "keywords": [
-        "Casterke",
+        "casterke",
         "laravel",
         "simplepay",
         "otp",
         "simplepay-laravel"
     ],
-    "homepage": "https://github.com/Casterke/simplepay-laravel",
+    "homepage": "https://github.com/casterke/simplepay-laravel",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Casterke\\SimplePayLaravel\\": "src"
+            "casterke\\SimplePayLaravel\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Casterke\\SimplePayLaravel\\Tests\\": "tests"
+            "casterke\\SimplePayLaravel\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -46,10 +46,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Casterke\\SimplePayLaravel\\SimplepayLaravelServiceProvider"
+                "casterke\\SimplePayLaravel\\SimplepayLaravelServiceProvider"
             ],
             "aliases": {
-                "SimplePayLaravel": "Casterke\\SimplePayLaravel\\SimplepayLaravelFacade"
+                "SimplePayLaravel": "casterke\\SimplePayLaravel\\SimplepayLaravelFacade"
             }
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Casterke\SimplePayLaravel\SDK;
+namespace casterke\SimplePayLaravel\SDK;
 
 /**
  * Finish
