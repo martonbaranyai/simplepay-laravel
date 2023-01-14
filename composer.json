@@ -14,12 +14,17 @@
     "authors": [
         {
             "name": "Joel Lupfer",
-            "email": "joel@lupfer.dev",
-            "role": "Developer"
+            "homepage": "https://github.com/Casterke"
         }
     ],
+    "support": {
+        "issues": "https://github.com/Casterke/simplepay-laravel"
+    },
     "require": {
-        "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0",
+        "ext-dom": "*",
+        "ext-openssl": "*",
+        "ext-simplexml": "*"
     },
     "autoload": {
         "psr-4": {

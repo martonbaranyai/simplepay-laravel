@@ -5,16 +5,16 @@
  */
 return [
     //HUF
-    'HUF_MERCHANT' => env('SP_HUF_MERCHANT'),            //merchant account ID (HUF)
-    'HUF_SECRET_KEY' => env('SP_HUF_SECRET_KEY'),          //secret key for account ID (HUF)
+    'HUF_MERCHANT'      => env('SP_HUF_MERCHANT'),            //merchant account ID (HUF)
+    'HUF_SECRET_KEY'    => env('SP_HUF_SECRET_KEY'),          //secret key for account ID (HUF)
 
     //EUR
-    'EUR_MERCHANT' => env('SP_EUR_MERCHANT'),            //merchant account ID (EUR)
-    'EUR_SECRET_KEY' => env('SP_EUR_SECRET_KEY'),          //secret key for account ID (EUR)
+    'EUR_MERCHANT'      => env('SP_EUR_MERCHANT'),            //merchant account ID (EUR)
+    'EUR_SECRET_KEY'    => env('SP_EUR_SECRET_KEY'),          //secret key for account ID (EUR)
 
     //USD
-    'USD_MERCHANT' => env('SP_USD_MERCHANT'),            //merchant account ID (USD)
-    'USD_SECRET_KEY' => env('SP_USD_SECRET_KEY'),          //secret key for account ID (USD)
+    'USD_MERCHANT'      => env('SP_USD_MERCHANT'),            //merchant account ID (USD)
+    'USD_SECRET_KEY'    => env('SP_USD_SECRET_KEY'),          //secret key for account ID (USD)
 
     'SANDBOX' => env('SP_SANDBOX', true),
 
