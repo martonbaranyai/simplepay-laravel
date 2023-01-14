@@ -51,6 +51,13 @@ class SimplePayLaravel
         return $this;
     }
 
+    public function orderRef($orderRef)
+    {
+        $this->orderRef = $orderRef;
+
+        return $this;
+    }
+
     public function totalPrice($totalPrice)
     {
         $this->totalPrice = $totalPrice;
