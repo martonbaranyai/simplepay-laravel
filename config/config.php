@@ -16,9 +16,8 @@ return [
     'USD_MERCHANT' => env('SP_USD_MERCHANT'),            //merchant account ID (USD)
     'USD_SECRET_KEY' => env('SP_USD_SECRET_KEY'),          //secret key for account ID (USD)
     'SANDBOX' => env('SP_SANDBOX', true),
-    //common return URL
-    'URL' => env('SP_URL_RETURN', 'http://' . $_SERVER['HTTP_HOST'] . '/back.php'),
     // BELOW USE NAMED ROUTES AS PARAMETERS FOR ROUTE NAME
+    'URL' => env('SP_URL_RETURN', 'simplepay.back'),
     'URL' => env('SP_URL_RETURN', 'simplepay.success-page'),
     'SUCCESS_PAGE' => env('SP_SUCCESS_PAGE', false),
     'SUCCESS_PAGE_ROUTE_NAME' => env('SP_SUCCESS_PAGE_ROUTE_NAME', 'simplepay.success-page'),
