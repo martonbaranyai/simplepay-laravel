@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Casterke\SimplepayLaravel\SDK\SimplePayBack;
-use Casterke\SimplepayLaravel\SimplepayLaravel;
+use Casterke\SimplePayLaravel\SDK\SimplePayBack;
+use Casterke\SimplePayLaravel\SimplePayLaravel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +37,7 @@ class StartPayByUrl
         $address = $request->get('address');
 
         // SIMPLY CALL THIS HELPER
-        $url = SimplepayLaravel::prepare()
+        $url = SimplePayLaravel::prepare()
             ->language($language)
             ->currency($currency)
             ->totalPrice($price)

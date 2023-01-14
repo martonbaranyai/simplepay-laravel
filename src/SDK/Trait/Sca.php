@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Casterke\SimplepayLaravel\SDK\Trait;
+namespace Casterke\SimplePayLaravel\SDK\Trait;
 
 /**
  * Strong Customer Authentication (SCA) -- 3DSecure

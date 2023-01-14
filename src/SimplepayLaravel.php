@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Casterke\SimplepayLaravel;
+namespace Casterke\SimplePayLaravel;
 
-use Casterke\SimplepayLaravel\SDK\SimplePayStart;
+use Casterke\SimplePayLaravel\SDK\SimplePayStart;
 
-class SimplepayLaravel
+class SimplePayLaravel
 {
     protected $language = 'HU';
 

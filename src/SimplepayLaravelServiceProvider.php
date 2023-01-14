@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Casterke\SimplepayLaravel;
+namespace Casterke\SimplePayLaravel;
 
 use Illuminate\Support\ServiceProvider;
 
-class SimplepayLaravelServiceProvider extends ServiceProvider
+class SimplePayLaravelServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -56,7 +56,7 @@ class SimplepayLaravelServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('simplepay-laravel', function () {
-            return new SimplepayLaravel();
+            return new SimplePayLaravel();
         });
     }
 }

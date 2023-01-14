@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Casterke\SimplepayLaravel;
+namespace Casterke\SimplePayLaravel;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Casterke\SimplepayLaravel\Skeleton\SkeletonClass
+ * @see \Casterke\SimplePayLaravel\Skeleton\SkeletonClass
  */
-class SimplepayLaravelFacade extends Facade
+class SimplePayLaravelFacade extends Facade
 {
     /**
      * Get the registered name of the component.

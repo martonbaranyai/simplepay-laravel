@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Casterke\SimplepayLaravel\SDK;
+namespace Casterke\SimplePayLaravel\SDK;
 
 /**
  * Refund
