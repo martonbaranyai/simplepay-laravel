@@ -21,17 +21,9 @@
     "require": {
         "php": "^7.4|^8.0"
     },
-    "require-dev": {
-
-    },
     "autoload": {
         "psr-4": {
             "casterke\\SimplePayLaravel\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-
         }
     },
     "scripts": {
