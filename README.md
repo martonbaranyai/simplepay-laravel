@@ -1,18 +1,18 @@
 # SimplePay for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/casterke/simplepay-laravel.svg?style=flat-square)](https://packagist.org/packages/casterke/simplepay-laravel)
-[![Total Downloads](https://img.shields.io/packagist/dt/casterke/simplepay-laravel.svg?style=flat-square)](https://packagist.org/packages/casterke/simplepay-laravel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/Casterke/simplepay-laravel.svg?style=flat-square)](https://packagist.org/packages/Casterke/simplepay-laravel)
+[![Total Downloads](https://img.shields.io/packagist/dt/Casterke/simplepay-laravel.svg?style=flat-square)](https://packagist.org/packages/Casterke/simplepay-laravel)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require casterke/simplepay-laravel
+composer require Casterke/simplepay-laravel
 ```
 Publish config file
 
-```php artisan vendor:publish --provider="casterke\SimplePayLaravel\SimplepayLaravelServiceProvider" --tag="config"```
+```php artisan vendor:publish --provider="Casterke\SimplePayLaravel\SimplepayLaravelServiceProvider" --tag="config"```
 
 ## Usage
 
@@ -35,7 +35,7 @@ If you discover any security related issues, please email joel@lupfer.dev instea
 
 ## Credits
 
--   [casterke](https://github.com/casterke)
+-   [Casterke](https://github.com/Casterke)
 
 ## License
 

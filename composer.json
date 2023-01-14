@@ -8,7 +8,7 @@
         "otp",
         "simplepay-laravel"
     ],
-    "homepage": "https://github.com/casterke/simplepay-laravel",
+    "homepage": "https://github.com/Casterke/simplepay-laravel",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "casterke\\SimplePayLaravel\\": "src"
+            "Casterke\\SimplePayLaravel\\": "src"
         }
     },
     "scripts": {
@@ -34,10 +34,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "casterke\\SimplePayLaravel\\SimplepayLaravelServiceProvider"
+                "Casterke\\SimplePayLaravel\\SimplepayLaravelServiceProvider"
             ],
             "aliases": {
-                "SimplePayLaravel": "casterke\\SimplePayLaravel\\SimplepayLaravelFacade"
+                "SimplePayLaravel": "Casterke\\SimplePayLaravel\\SimplepayLaravelFacade"
             }
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace casterke\SimplePayLaravel\SDK;
+namespace Casterke\SimplePayLaravel\SDK;
 
 /**
  * Refund

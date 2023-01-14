@@ -1,6 +1,6 @@
 <?php
 
-namespace casterke\SimplePayLaravel\SDK\Trait;
+namespace Casterke\SimplePayLaravel\SDK\Trait;
 
 /**
  * Views
