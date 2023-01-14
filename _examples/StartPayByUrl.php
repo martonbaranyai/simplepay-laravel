@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use zoparga\SimplePayLaravel\SDK\SimplePayBack;
-use zoparga\SimplePayLaravel\SimplePayLaravel;
+use Casterke\SimplePayLaravel\SDK\SimplePayBack;
+use Casterke\SimplePayLaravel\SimplePayLaravel;
 
 class StartPayByUrl
 {

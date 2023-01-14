@@ -1,6 +1,6 @@
 <?php
 
-namespace zoparga\SimplePayLaravel\SDK;
+namespace Casterke\SimplePayLaravel\SDK;
 
 use Exception;
 

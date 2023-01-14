@@ -1,17 +1,20 @@
 {
-    "name": "zoparga/simplepay-laravel",
+    "name": "Casterke/simplepay-laravel",
     "description": "OTP SimplePay integration for Laravel applications.",
     "keywords": [
-        "zoparga",
+        "Casterke",
+        "laravel",
+        "simplepay",
+        "otp",
         "simplepay-laravel"
     ],
-    "homepage": "https://github.com/zoparga/simplepay-laravel",
+    "homepage": "https://github.com/Casterke/simplepay-laravel",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Zoltán Papp",
-            "email": "zoltan@pappz.hu",
+            "name": "Joel Lupfer",
+            "email": "joel@lupfer.dev",
             "role": "Developer"
         }
     ],
@@ -24,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "zoparga\\SimplePayLaravel\\": "src"
+            "Casterke\\SimplePayLaravel\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "zoparga\\SimplePayLaravel\\Tests\\": "tests"
+            "Casterke\\SimplePayLaravel\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,10 +46,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "zoparga\\SimplePayLaravel\\SimplepayLaravelServiceProvider"
+                "Casterke\\SimplePayLaravel\\SimplepayLaravelServiceProvider"
             ],
             "aliases": {
-                "SimplePayLaravel": "zoparga\\SimplePayLaravel\\SimplepayLaravelFacade"
+                "SimplePayLaravel": "Casterke\\SimplePayLaravel\\SimplepayLaravelFacade"
             }
         }
     }

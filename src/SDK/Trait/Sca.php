@@ -1,6 +1,6 @@
 <?php
 
-namespace zoparga\SimplePayLaravel\SDK\Trait;
+namespace Casterke\SimplePayLaravel\SDK\Trait;
 
 /**
  * Strong Customer Authentication (SCA) -- 3DSecure

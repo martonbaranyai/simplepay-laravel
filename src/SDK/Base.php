@@ -1,11 +1,11 @@
 <?php
 
-namespace zoparga\SimplePayLaravel\SDK;
+namespace Casterke\SimplePayLaravel\SDK;
 
-use zoparga\SimplePayLaravel\SDK\Trait\Communication;
-use zoparga\SimplePayLaravel\SDK\Trait\Logger;
-use zoparga\SimplePayLaravel\SDK\Trait\Signature;
-use zoparga\SimplePayLaravel\SDK\Trait\Views;
+use Casterke\SimplePayLaravel\SDK\Trait\Communication;
+use Casterke\SimplePayLaravel\SDK\Trait\Logger;
+use Casterke\SimplePayLaravel\SDK\Trait\Signature;
+use Casterke\SimplePayLaravel\SDK\Trait\Views;
 
 /**
  * Base class for SimplePay implementation

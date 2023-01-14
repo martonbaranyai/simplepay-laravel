@@ -1,18 +1,18 @@
 # SimplePay for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/zoparga/simplepay-laravel.svg?style=flat-square)](https://packagist.org/packages/zoparga/simplepay-laravel)
-[![Total Downloads](https://img.shields.io/packagist/dt/zoparga/simplepay-laravel.svg?style=flat-square)](https://packagist.org/packages/zoparga/simplepay-laravel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/Casterke/simplepay-laravel.svg?style=flat-square)](https://packagist.org/packages/Casterke/simplepay-laravel)
+[![Total Downloads](https://img.shields.io/packagist/dt/Casterke/simplepay-laravel.svg?style=flat-square)](https://packagist.org/packages/Casterke/simplepay-laravel)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require zoparga/simplepay-laravel
+composer require Casterke/simplepay-laravel
 ```
 Publish config file
 
-```php artisan vendor:publish --provider="zoparga\SimplePayLaravel\SimplepayLaravelServiceProvider" --tag="config"```
+```php artisan vendor:publish --provider="Casterke\SimplePayLaravel\SimplepayLaravelServiceProvider" --tag="config"```
 
 ## Usage
 
@@ -31,11 +31,11 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security related issues, please email zoltan@pappz.hu instead of using the issue tracker.
+If you discover any security related issues, please email joel@lupfer.dev instead of using the issue tracker.
 
 ## Credits
 
--   [zoparga](https://github.com/zoparga)
+-   [Casterke](https://github.com/Casterke)
 
 ## License
 
