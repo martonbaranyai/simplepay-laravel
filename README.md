@@ -12,7 +12,7 @@ composer require Casterke/simplepay-laravel
 ```
 Publish config file
 
-```php artisan vendor:publish --provider="Casterke\SimplePayLaravel\SimplepayLaravelServiceProvider" --tag="config"```
+```php artisan vendor:publish --provider="Casterke\SimplepayLaravel\SimplepayLaravelServiceProvider" --tag="config"```
 
 ## Usage
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Casterke\SimplePayLaravel;
+namespace Casterke\SimplepayLaravel;
 
-use Casterke\SimplePayLaravel\SDK\SimplePayStart;
+use Casterke\SimplepayLaravel\SDK\SimplePayStart;
 
 class SimplepayLaravel
 {

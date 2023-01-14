@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Casterke\SimplePayLaravel;
+namespace Casterke\SimplepayLaravel;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Casterke\SimplePayLaravel\Skeleton\SkeletonClass
+ * @see \Casterke\SimplepayLaravel\Skeleton\SkeletonClass
  */
 class SimplepayLaravelFacade extends Facade
 {

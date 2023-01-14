@@ -22,13 +22,14 @@
     },
     "require": {
         "php": "^7.4|^8.0",
+        "laravel/framework": "^6.0|^7.0|^8.74|^9.0|^10.0",
         "ext-dom": "*",
         "ext-openssl": "*",
         "ext-simplexml": "*"
     },
     "autoload": {
         "psr-4": {
-            "casterke\\SimplePayLaravel\\": "src"
+            "casterke\\SimplepayLaravel\\": "src"
         }
     },
     "scripts": {
@@ -39,10 +40,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Casterke\\SimplePayLaravel\\SimplepayLaravelServiceProvider"
+                "Casterke\\SimplepayLaravel\\SimplepayLaravelServiceProvider"
             ],
             "aliases": {
-                "SimplePayLaravel": "Casterke\\SimplePayLaravel\\SimplepayLaravelFacade"
+                "SimplepayLaravel": "Casterke\\SimplepayLaravel\\SimplepayLaravelFacade"
             }
         }
     }

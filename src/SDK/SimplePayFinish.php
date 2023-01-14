@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Casterke\SimplePayLaravel\SDK;
+namespace Casterke\SimplepayLaravel\SDK;
 
 /**
  * Finish

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Casterke\SimplePayLaravel\SDK\Trait;
+namespace Casterke\SimplepayLaravel\SDK\Trait;
 
 /**
  * Views
