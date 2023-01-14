@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel\SDK;
 
 /**
@@ -14,10 +16,6 @@ namespace Casterke\SimplePayLaravel\SDK;
  */
 class SimplePayFinish extends Base
 {
-    protected $currentInterface = 'finish';
-
-    protected $returnData = [];
-
     public $transactionBase = [
         'salt' => '',
         'merchant' => '',
@@ -27,6 +25,10 @@ class SimplePayFinish extends Base
         'approveTotal' => '',
         'currency' => '',
     ];
+
+    protected $currentInterface = 'finish';
+
+    protected $returnData = [];
 
     /**
      * Run finish

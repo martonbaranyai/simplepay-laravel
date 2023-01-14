@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel\SDK\Trait;
 
 /**
@@ -22,6 +24,28 @@ trait Views
     ];
 
     /**
+     * HTML form creation for redirect to payment page
+     *
+     * @return void
+     */
+    public function getHtmlForm()
+    {
+        $this->returnData['form'] = 'Transaction start was failed!';
+        if (isset($this->returnData['paymentUrl']) && $this->returnData['paymentUrl'] != '') {
+            $this->returnData['form'] = '<form action="' . $this->returnData['paymentUrl'] . '" method="GET" id="' . $this->formDetails['id'] . '" accept-charset="UTF-8">';
+            $this->returnData['form'] .= $this->formSubmitElement($this->formDetails['name'], $this->formDetails['element'], $this->formDetails['elementText']);
+            $this->returnData['form'] .= '</form>';
+        }
+    }
+
+    public function getPaymentUrl()
+    {
+        if (isset($this->returnData['paymentUrl']) && $this->returnData['paymentUrl'] != '') {
+            $this->returnData['form'] = $this->returnData['paymentUrl'];
+        }
+    }
+
+    /**
      * Generates HTML submit element
      *
      * @param  string  $formName          The ID parameter of the form
@@ -33,43 +57,21 @@ trait Views
     {
         switch ($submitElement) {
             case 'link':
-                $element = "\n<a href='javascript:document.getElementById(\"".$formName."\").submit()'>".addslashes($submitElementText).'</a>';
+                $element = "\n<a href='javascript:document.getElementById(\"" . $formName . "\").submit()'>" . addslashes($submitElementText) . '</a>';
                 break;
             case 'button':
-                $element = "\n<button type='submit'>".addslashes($submitElementText).'</button>';
+                $element = "\n<button type='submit'>" . addslashes($submitElementText) . '</button>';
                 break;
             case 'auto':
-                $element = "\n<button type='submit'>".addslashes($submitElementText).'</button>';
-                $element .= "\n<script language=\"javascript\" type=\"text/javascript\">document.getElementById(\"".$formName.'").submit();</script>';
+                $element = "\n<button type='submit'>" . addslashes($submitElementText) . '</button>';
+                $element .= "\n<script language=\"javascript\" type=\"text/javascript\">document.getElementById(\"" . $formName . '").submit();</script>';
                 break;
             default:
-                $element = "\n<button type='submit'>".addslashes($submitElementText).'</button>';
+                $element = "\n<button type='submit'>" . addslashes($submitElementText) . '</button>';
                 break;
         }
 
         return $element;
-    }
-
-    /**
-     * HTML form creation for redirect to payment page
-     *
-     * @return void
-     */
-    public function getHtmlForm()
-    {
-        $this->returnData['form'] = 'Transaction start was failed!';
-        if (isset($this->returnData['paymentUrl']) && $this->returnData['paymentUrl'] != '') {
-            $this->returnData['form'] = '<form action="'.$this->returnData['paymentUrl'].'" method="GET" id="'.$this->formDetails['id'].'" accept-charset="UTF-8">';
-            $this->returnData['form'] .= $this->formSubmitElement($this->formDetails['name'], $this->formDetails['element'], $this->formDetails['elementText']);
-            $this->returnData['form'] .= '</form>';
-        }
-    }
-
-    public function getPaymentUrl()
-    {
-        if (isset($this->returnData['paymentUrl']) && $this->returnData['paymentUrl'] != '') {
-            $this->returnData['form'] = $this->returnData['paymentUrl'];
-        }
     }
 
     /**
@@ -85,8 +87,8 @@ trait Views
             $this->notificationFormated = '<div>';
             $this->notificationFormated .= '<b>Sikeres fizetés</b>';
         }
-        $this->notificationFormated .= '<b>SimplePay tranzakció azonosító:</b> '.$this->request['rContent']['t'].'</br>';
-        $this->notificationFormated .= '<b>Kereskedői referencia szám:</b> '.$this->request['rContent']['o'].'</br>';
+        $this->notificationFormated .= '<b>SimplePay tranzakció azonosító:</b> ' . $this->request['rContent']['t'] . '</br>';
+        $this->notificationFormated .= '<b>Kereskedői referencia szám:</b> ' . $this->request['rContent']['o'] . '</br>';
         $this->notificationFormated .= '</div>';
     }
 }

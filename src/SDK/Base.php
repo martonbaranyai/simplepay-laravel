@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel\SDK;
 
 use Casterke\SimplePayLaravel\SDK\Trait\Communication;
@@ -26,11 +28,17 @@ class Base
 
     public $config = [];
 
+    public $sdkVersion = 'SimplePay_PHP_SDK_2.1.1_210804';
+
+    public $logTransactionId = 'N/A';
+
+    public $logOrderRef = 'N/A';
+
+    public $logPath = '';
+
     protected $headers = [];
 
     protected $hashAlgo = 'sha384';
-
-    public $sdkVersion = 'SimplePay_PHP_SDK_2.1.1_210804';
 
     protected $logSeparator = '|';
 
@@ -51,12 +59,6 @@ class Base
         'refund' => '/v2/refund',
         'query' => '/v2/query',
     ];
-
-    public $logTransactionId = 'N/A';
-
-    public $logOrderRef = 'N/A';
-
-    public $logPath = '';
 
     protected $phpVersion = 8;
 
@@ -246,9 +248,9 @@ class Base
     protected function getHeaders($hash = '', $language = 'en')
     {
         $headers = [
-            'Accept-language: '.$language,
+            'Accept-language: ' . $language,
             'Content-type: application/json',
-            'Signature: '.$hash,
+            'Signature: ' . $hash,
         ];
 
         return $headers;
@@ -282,7 +284,7 @@ class Base
         if (isset($this->config['api'])) {
             $api = $this->config['api'];
         }
-        $this->config['apiUrl'] = $this->api[$api].$this->apiInterface[$this->currentInterface];
+        $this->config['apiUrl'] = $this->api[$api] . $this->apiInterface[$this->currentInterface];
     }
 
     /**
@@ -321,7 +323,7 @@ class Base
             if (is_array($value)) {
                 $subArray = $this->getFlatArray($value);
                 foreach ($subArray as $subKey => $subValue) {
-                    $return[$key.'_'.$subKey] = $subValue;
+                    $return[$key . '_' . $subKey] = $subValue;
                 }
             } elseif (! is_array($value)) {
                 $return[$key] = $value;
@@ -339,8 +341,8 @@ class Base
     protected function setConfig()
     {
         if (isset($this->transactionBase['currency']) && $this->transactionBase['currency'] != '') {
-            $this->config['merchant'] = $this->config[$this->transactionBase['currency'].'_MERCHANT'];
-            $this->config['merchantKey'] = $this->config[$this->transactionBase['currency'].'_SECRET_KEY'];
+            $this->config['merchant'] = $this->config[$this->transactionBase['currency'] . '_MERCHANT'];
+            $this->config['merchantKey'] = $this->config[$this->transactionBase['currency'] . '_SECRET_KEY'];
         } elseif (isset($this->config['merchantAccount'])) {
             foreach ($this->config as $configKey => $configValue) {
                 if ($configValue === $this->config['merchantAccount']) {
@@ -349,8 +351,8 @@ class Base
                 }
             }
             $this->transactionBase['currency'] = substr($key, 0, 3);
-            $this->config['merchant'] = $this->config[$this->transactionBase['currency'].'_MERCHANT'];
-            $this->config['merchantKey'] = $this->config[$this->transactionBase['currency'].'_SECRET_KEY'];
+            $this->config['merchant'] = $this->config[$this->transactionBase['currency'] . '_MERCHANT'];
+            $this->config['merchantKey'] = $this->config[$this->transactionBase['currency'] . '_SECRET_KEY'];
         }
 
         $this->config['api'] = 'live';
@@ -389,7 +391,7 @@ class Base
         $this->setApiUrl();
         $this->transactionBase['merchant'] = $this->config['merchant'];
         $this->transactionBase['salt'] = $this->getSalt();
-        $this->transactionBase['sdkVersion'] = $this->sdkVersion.':'.hash_file('md5', __FILE__);
+        $this->transactionBase['sdkVersion'] = $this->sdkVersion . ':' . hash_file('md5', __FILE__);
         $this->content = $this->getHashBase($this->transactionBase);
         $this->logContent = array_merge($this->logContent, $this->transactionBase);
         $this->config['computedHash'] = $this->getSignature($this->config['merchantKey'], $this->content);

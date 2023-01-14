@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel\SDK\Trait;
 
 use Exception;
@@ -34,17 +36,17 @@ trait Logger
         }
 
         $date = @date('Y-m-d H:i:s', time());
-        $logFile = storage_path('logs/simplepay').'/'.@date('Ymd', time()).'.log';
+        $logFile = storage_path('logs/simplepay') . '/' . @date('Ymd', time()) . '.log';
 
         try {
             if (! is_writable(storage_path('logs/simplepay'))) {
                 $write = false;
-                throw new Exception('Folder is not writable: '.storage_path('logs/simplepay'));
+                throw new Exception('Folder is not writable: ' . storage_path('logs/simplepay'));
             }
             if (file_exists($logFile)) {
                 if (! is_writable($logFile)) {
                     $write = false;
-                    throw new Exception('File is not writable: '.$logFile);
+                    throw new Exception('File is not writable: ' . $logFile);
                 }
             }
         } catch (Exception $e) {
@@ -55,12 +57,12 @@ trait Logger
             $flat = $this->getFlatArray($log);
             $logText = '';
             foreach ($flat as $key => $value) {
-                $logText .= $this->logOrderRef.$this->logSeparator;
-                $logText .= $this->logTransactionId.$this->logSeparator;
-                $logText .= $this->currentInterface.$this->logSeparator;
-                $logText .= $date.$this->logSeparator;
-                $logText .= $key.$this->logSeparator;
-                $logText .= $this->contentFilter($key, $value)."\n";
+                $logText .= $this->logOrderRef . $this->logSeparator;
+                $logText .= $this->logTransactionId . $this->logSeparator;
+                $logText .= $this->currentInterface . $this->logSeparator;
+                $logText .= $date . $this->logSeparator;
+                $logText .= $key . $this->logSeparator;
+                $logText .= $this->contentFilter($key, $value) . "\n";
             }
             $this->logToFile($logFile, $logText);
             unset($log, $flat, $logText);

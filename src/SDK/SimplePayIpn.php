@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel\SDK;
 
 use Exception;
@@ -16,6 +18,8 @@ use Exception;
  */
 class SimplePayIpn extends Base
 {
+    public $validationResult = false;
+
     protected $currentInterface = 'ipn';
 
     protected $returnData = [];
@@ -27,8 +31,6 @@ class SimplePayIpn extends Base
     protected $responseContent = '';
 
     protected $ipnReturnData = [];
-
-    public $validationResult = false;
 
     /**
      * IPN validation
@@ -112,7 +114,7 @@ class SimplePayIpn extends Base
         try {
             header('Accept-language: EN');
             header('Content-type: application/json');
-            header('Signature: '.$this->ipnReturnData['signature']);
+            header('Signature: ' . $this->ipnReturnData['signature']);
             echo $this->ipnReturnData['confirmContent'];
         } catch (Exception $e) {
             $this->writeLog(['ipnConfirm' => $e->getMessage()]);

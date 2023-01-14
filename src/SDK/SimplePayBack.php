@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel\SDK;
 
 /**
@@ -14,10 +16,6 @@ namespace Casterke\SimplePayLaravel\SDK;
  */
 class SimplePayBack extends Base
 {
-    protected $currentInterface = 'back';
-
-    protected $notification = [];
-
     public $request = [
         'rRequest' => '',
         'sRequest' => '',
@@ -30,6 +28,10 @@ class SimplePayBack extends Base
             'o' => 'N/A',
         ],
     ];
+
+    protected $currentInterface = 'back';
+
+    protected $notification = [];
 
     /**
      * Validates CTRL variable

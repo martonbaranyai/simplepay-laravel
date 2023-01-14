@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+declare(strict_types=1);
+
 use Casterke\SimplePayLaravel\SDK\SimplePayBack;
 use Casterke\SimplePayLaravel\SimplePayLaravel;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class StartPayByUrl
 {

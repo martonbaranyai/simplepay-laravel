@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel;
 
 use Illuminate\Support\ServiceProvider;
@@ -21,7 +23,7 @@ class SimplepayLaravelServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('simplepay-laravel.php'),
+                __DIR__ . '/../config/config.php' => config_path('simplepay-laravel.php'),
             ], 'config');
 
             // Publishing the views.
@@ -50,11 +52,11 @@ class SimplepayLaravelServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'simplepay-laravel');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'simplepay-laravel');
 
         // Register the main class to use with the facade
         $this->app->singleton('simplepay-laravel', function () {
-            return new SimplePayLaravel;
+            return new SimplePayLaravel();
         });
     }
 }
