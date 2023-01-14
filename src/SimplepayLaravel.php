@@ -6,27 +6,19 @@ use Casterke\SimplePayLaravel\SDK\SimplePayStart;
 
 class SimplePayLaravel
 {
-    public $language = 'HU';
+    protected $language = 'HU';
+    protected $currency = 'HUF';
 
-    public $currency = 'HUF';
-
-    public $totalPrice = 300;
-
-    public $email = 'sdk_test@otpmobil.com';
-
-    public $name = 'SimplePay V2 Tester';
-
-    public $company = '';
-
-    public $country = 'hu';
-
-    public $state = 'Budapest';
-
-    public $zip = '1111';
-
-    public $city = 'Budapest';
-
-    public $address = 'Address 1';
+    protected $orderRef;
+    protected $totalPrice;
+    protected $email;
+    protected $name;
+    protected $company;
+    protected $country;
+    protected $state;
+    protected $zip;
+    protected $city;
+    protected $address;
 
     public static function prepare()
     {
@@ -115,12 +107,7 @@ class SimplePayLaravel
         $config = config('simplepay-laravel');
 
         $trx = new SimplePayStart;
-
-        $this->initDefaults();
-        // MAGIC HAPPENS HERE
-
         $trx->addData('currency', $this->currency);
-
         $trx->addConfig($config);
 
         //ORDER PRICE/TOTAL
@@ -170,7 +157,7 @@ class SimplePayLaravel
         // ORDER REFERENCE NUMBER
         // uniq oreder reference number in the merchant system
         //-----------------------------------------------------------------------------------------
-        $trx->addData('orderRef', str_replace(['.', ':', '/'], '', @$_SERVER['SERVER_ADDR']).@date('U', time()).rand(1000, 9999));
+        $trx->addData('orderRef', $this->orderRef);
 
         // CUSTOMER
         // customer's name
@@ -288,15 +275,5 @@ class SimplePayLaravel
         //return the URL
         //-----------------------------------------------------------------------------------------
         return $trx->returnData['paymentUrl'];
-    }
-
-    public function initDefaults()
-    {
-        if (! $this->language) {
-            $this->language = 'HU';
-        }
-        if (! $this->currency) {
-            $this->currency = 'HUF';
-        }
     }
 }

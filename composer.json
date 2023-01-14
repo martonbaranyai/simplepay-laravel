@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Casterke\\SimplePayLaravel\\": "src"
+            "casterke\\SimplePayLaravel\\": "src"
         }
     },
     "scripts": {

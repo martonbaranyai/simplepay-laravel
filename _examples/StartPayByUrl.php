@@ -59,7 +59,7 @@ class StartPayByUrl
     public function simplePayResponse()
     {
         $config = config('simplepay-laravel');
-        $trx = new SimplePayBack;
+        $trx = new SimplePayBack();
         $trx->addConfig($config);
 
         //result
