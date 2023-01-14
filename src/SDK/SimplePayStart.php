@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel\SDK;
 
 /**
@@ -14,8 +16,6 @@ namespace Casterke\SimplePayLaravel\SDK;
  */
 class SimplePayStart extends Base
 {
-    protected $currentInterface = 'start';
-
     public $transactionBase = [
         'salt' => '',
         'merchant' => '',
@@ -24,6 +24,8 @@ class SimplePayStart extends Base
         'sdkVersion' => '',
         'methods' => [],
     ];
+
+    protected $currentInterface = 'start';
 
     /**
      * Send initial data to SimplePay API for validation

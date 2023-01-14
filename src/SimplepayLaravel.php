@@ -1,28 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel;
 
 use Casterke\SimplePayLaravel\SDK\SimplePayStart;
 
-class SimplePayLaravel
+class SimplepayLaravel
 {
     protected $language = 'HU';
+
     protected $currency = 'HUF';
 
     protected $orderRef;
+
     protected $totalPrice;
+
     protected $email;
+
     protected $name;
+
     protected $company;
+
     protected $country;
+
     protected $state;
+
     protected $zip;
+
     protected $city;
+
     protected $address;
 
     public static function prepare()
     {
-        return new static;
+        return new static();
     }
 
     public function language($language)
@@ -106,7 +118,7 @@ class SimplePayLaravel
     {
         $config = config('simplepay-laravel');
 
-        $trx = new SimplePayStart;
+        $trx = new SimplePayStart();
         $trx->addData('currency', $this->currency);
         $trx->addConfig($config);
 

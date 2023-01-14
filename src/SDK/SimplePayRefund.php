@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casterke\SimplePayLaravel\SDK;
 
 /**
@@ -14,10 +16,6 @@ namespace Casterke\SimplePayLaravel\SDK;
  */
 class SimplePayRefund extends Base
 {
-    protected $currentInterface = 'refund';
-
-    protected $returnData = [];
-
     public $transactionBase = [
         'salt' => '',
         'merchant' => '',
@@ -25,6 +23,10 @@ class SimplePayRefund extends Base
         'transactionId' => '',
         'currency' => '',
     ];
+
+    protected $currentInterface = 'refund';
+
+    protected $returnData = [];
 
     /**
      * Run refund
