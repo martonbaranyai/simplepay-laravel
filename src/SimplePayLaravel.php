@@ -319,6 +319,6 @@ class SimplePayLaravel
             throw new InvalidSignatureException('Response missing or not valied');
         }
 
-        return $responseData['paymentUrl'];
+        return $responseData;
     }
 }
