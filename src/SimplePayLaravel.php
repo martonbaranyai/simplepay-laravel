@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Casterke\SimplePayLaravel;
 
+use Casterke\SimplePay\Exceptions\InvalidSignatureException;
+use Casterke\SimplePay\Exceptions\InvalidSimplePayRequestException;
 use Casterke\SimplePayLaravel\SDK\SimplePayStart;
 
 class SimplePayLaravel
@@ -226,22 +228,38 @@ class SimplePayLaravel
         // REDIRECT URLs
         //-----------------------------------------------------------------------------------------
 
-        // common URL for all result
-        $trx->addData('url', $config['URL']);
+        if ($config['NAMED_ROUTES']) {
+            $trx->addData('url', route($config['URL']));
 
-        // uniq URL for every result type
-        if ($config['SUCCESS_PAGE']) {
-            $trx->addGroupData('urls', 'success', $config['SUCCESS_PAGE_ROUTE_NAME']);
+            if (!empty($config['SUCCESS_PAGE_ROUTE_NAME'])) {
+                $trx->addGroupData('urls', 'success', route($config['SUCCESS_PAGE_ROUTE_NAME']));
+            }
+            if (!empty($config['FAIL_PAGE_ROUTE_NAME'])) {
+                $trx->addGroupData('urls', 'fail', route($config['FAIL_PAGE_ROUTE_NAME']));
+            }
+            if (!empty($config['CANCEL_PAGE_ROUTE_NAME'])) {
+                $trx->addGroupData('urls', 'cancel', route($config['CANCEL_PAGE_ROUTE_NAME']));
+            }
+            if (!empty($config['TIMEOUT_PAGE_ROUTE_NAME'])) {
+                $trx->addGroupData('urls', 'timeout', route($config['TIMEOUT_PAGE_ROUTE_NAME']));
+            }
+        }else{
+            $trx->addData('url', $config['URL']);
+
+            if (!empty($config['SUCCESS_PAGE_ROUTE_NAME'])) {
+                $trx->addGroupData('urls', 'success', $config['SUCCESS_PAGE_ROUTE_NAME']);
+            }
+            if (!empty($config['FAIL_PAGE_ROUTE_NAME'])) {
+                $trx->addGroupData('urls', 'fail', $config['FAIL_PAGE_ROUTE_NAME']);
+            }
+            if (!empty($config['CANCEL_PAGE_ROUTE_NAME'])) {
+                $trx->addGroupData('urls', 'cancel', $config['CANCEL_PAGE_ROUTE_NAME']);
+            }
+            if (!empty($config['TIMEOUT_PAGE_ROUTE_NAME'])) {
+                $trx->addGroupData('urls', 'timeout', $config['TIMEOUT_PAGE_ROUTE_NAME']);
+            }
         }
-        if ($config['FAIL_PAGE']) {
-            $trx->addGroupData('urls', 'fail', $config['FAIL_PAGE_ROUTE_NAME']);
-        }
-        if ($config['CANCEL_PAGE']) {
-            $trx->addGroupData('urls', 'cancel', $config['CANCEL_PAGE_ROUTE_NAME']);
-        }
-        if ($config['TIMEOUT_PAGE']) {
-            $trx->addGroupData('urls', 'timeout', $config['TIMEOUT_PAGE_ROUTE_NAME']);
-        }
+
 
         // Redirect from Simple app to merchant app
         //-----------------------------------------------------------------------------------------
@@ -251,7 +269,7 @@ class SimplePayLaravel
         //-----------------------------------------------------------------------------------------
 
         $trx->addGroupData('invoice', 'name', $this->name);
-        if (empty($this->company)) {
+        if (!empty($this->company)) {
             $trx->addGroupData('invoice', 'company', $this->company);
         }
         $trx->addGroupData('invoice', 'country', $this->country);
@@ -283,16 +301,24 @@ class SimplePayLaravel
         //-----------------------------------------------------------------------------------------
         $trx->formDetails['element'] = 'link';
 
-        //create transaction in SimplePay system
-        //-----------------------------------------------------------------------------------------
+
         $trx->runStart();
 
-        //create html form for payment using by the created transaction
-        //-----------------------------------------------------------------------------------------
-        $trx->getPaymentUrl();
+        $responseData = $trx->getReturnData();
 
-        //return the URL
-        //-----------------------------------------------------------------------------------------
-        return $trx->returnData['paymentUrl'];
+        if ($responseData && array_key_exists('errorCodes', $responseData)) {
+            throw new InvalidSimplePayRequestException(
+                sprintf(
+                    'Probably the request is missing a required param. Please check the documentation for the following error code: %s',
+                    $responseData['errorCodes'][0]
+                )
+            );
+        }
+
+        if (!$responseData['responseSignatureValid']) {
+            throw new InvalidSignatureException('Response missing or not valied');
+        }
+
+        return $responseData['paymentUrl'];
     }
 }
