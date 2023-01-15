@@ -243,7 +243,7 @@ class SimplePayLaravel
             if (!empty($config['TIMEOUT_PAGE_ROUTE_NAME'])) {
                 $trx->addGroupData('urls', 'timeout', route($config['TIMEOUT_PAGE_ROUTE_NAME']));
             }
-        }else{
+        } else {
             $trx->addData('url', $config['URL']);
 
             if (!empty($config['SUCCESS_PAGE_ROUTE_NAME'])) {
@@ -259,7 +259,6 @@ class SimplePayLaravel
                 $trx->addGroupData('urls', 'timeout', $config['TIMEOUT_PAGE_ROUTE_NAME']);
             }
         }
-
 
         // Redirect from Simple app to merchant app
         //-----------------------------------------------------------------------------------------
@@ -300,7 +299,6 @@ class SimplePayLaravel
         // link: link to payment page
         //-----------------------------------------------------------------------------------------
         $trx->formDetails['element'] = 'link';
-
 
         $trx->runStart();
 
