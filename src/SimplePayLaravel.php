@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Casterke\SimplePayLaravel;
 
-use Casterke\SimplePay\Exceptions\InvalidSignatureException;
-use Casterke\SimplePay\Exceptions\InvalidSimplePayRequestException;
+use Casterke\SimplePayLaravel\Exceptions\InvalidSignatureException;
+use Casterke\SimplePayLaravel\Exceptions\InvalidSimplePayRequestException;
 use Casterke\SimplePayLaravel\SDK\SimplePayStart;
 
 class SimplePayLaravel
