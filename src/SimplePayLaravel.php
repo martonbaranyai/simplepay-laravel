@@ -207,11 +207,9 @@ class SimplePayLaravel
         // If this field does not exist is equal false value
         // Possibility of two step needs IT support setting
         //-----------------------------------------------------------------------------------------
-        /*
         if (isset($_REQUEST['twoStep'])) {
-            $trx->addData('twoStep', true);
+            $trx->addData('twoStep', false);
         }
-        */
 
         // TIMEOUT
         // 2018-09-15T11:25:37+02:00
